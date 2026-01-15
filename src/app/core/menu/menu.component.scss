@@ -1,0 +1,88 @@
+/* CONTENEDOR */
+.menu-container {
+    height: 100vh;
+    background-color: #fff;
+    color: #000;
+  }
+  
+  /* SIDENAV */
+  .menu-sidenav {
+    width: 240px;
+    background-color: #fff;
+    color: #000;
+  
+    transition: width 200ms ease;
+  
+    --mat-mdc-list-item-hover-state-layer-color: rgba(0, 0, 0, 0.04);
+    --mat-mdc-list-item-focus-state-layer-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  /* TOOLBAR */
+  .menu-toolbar {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* CONTENIDO */
+  .menu-content {
+    padding: 16px;
+    background-color: #fff;
+    min-height: calc(100vh - 64px);
+  }
+  
+  /* LOGO */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    font-weight: 600;
+  }
+  
+  /* ITEM ACTIVO */
+  .active {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  /* SPACER */
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  /* SIDENAV */
+.menu-sidenav {
+    width: 240px;
+    background-color: #ffffff; /* fondo blanco */
+  }
+  
+  /* Texto de todos los matLine en negro */
+  .menu-sidenav .mat-mdc-list-item .mat-mdc-list-item__primary-text,
+  .menu-sidenav .mat-mdc-list-item .mat-mdc-list-item__secondary-text,
+  .menu-sidenav .mat-mdc-list-item .mat-mdc-list-item-text,
+  .menu-sidenav span[matLine] {
+    color: #000000 !important;
+  }
+  
+  /* Iconos en negro */
+  .menu-sidenav mat-icon {
+    color: #000000 !important;
+  }
+  
+  /* Hover / focus */
+  .menu-sidenav .mat-mdc-list-item::after {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+  }
+  
+  /* Item activo */
+  .menu-sidenav .mat-mdc-list-item.mat-list-item-active {
+    background-color: rgba(0, 0, 0, 0.08) !important;
+  }
+  
+  /* Divider */
+  ::ng-deep .mat-divider {
+    border-top-color: rgba(0, 0, 0, 0.12);
+  }
+  
+  
+  

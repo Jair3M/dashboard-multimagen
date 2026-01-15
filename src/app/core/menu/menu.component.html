@@ -1,0 +1,71 @@
+<mat-sidenav-container class="menu-container">
+
+    <!-- SIDENAV -->
+    <mat-sidenav
+      #drawer
+      class="menu-sidenav"
+      [mode]="(isMobile$ | async) ? 'over' : 'side'"
+      [opened]="!(isMobile$ | async)"
+      [fixedInViewport]="isMobile$ | async"
+    >
+  
+      <!-- LOGO -->
+      <div class="logo">
+        <mat-icon>dashboard</mat-icon>
+        <span>Mi App</span>
+      </div>
+  
+      <!-- MENU -->
+      <mat-nav-list>
+  
+        <a mat-list-item routerLink="/home" routerLinkActive="active"
+            (click)="toggleDrawer(drawer)">
+          <mat-icon matListIcon>home</mat-icon>
+          <span matLine>Inicio</span>
+        </a>
+  
+        <a mat-list-item routerLink="/ventas" routerLinkActive="active"
+           (click)="toggleDrawer(drawer)">
+          <mat-icon matListIcon>shopping_cart</mat-icon>
+          <span matLine>Ventas</span>
+        </a>
+  
+        <mat-divider></mat-divider>
+  
+        <a mat-list-item (click)="logout()">
+          <mat-icon matListIcon>logout</mat-icon>
+          <span matLine>Salir</span>
+        </a>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- CONTENT -->
+    <mat-sidenav-content>
+  
+      <!-- TOOLBAR -->
+      <mat-toolbar class="menu-toolbar">
+  
+        <!-- HAMBURGUESA MOBILE -->
+        <button
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isMobile$ | async"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+  
+        <span class="title">Dashboard</span>
+        <span class="spacer"></span>
+        <mat-icon>account_circle</mat-icon>
+  
+      </mat-toolbar>
+  
+      <!-- MAIN -->
+      <div class="menu-content">
+        <router-outlet></router-outlet>
+      </div>
+  
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

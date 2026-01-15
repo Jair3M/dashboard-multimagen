@@ -1,0 +1,49 @@
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+  }
+  
+  .login-card {
+    width: 100%;
+    max-width: 380px;
+    padding: 16px;
+    color:black;
+    background-color: white;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+
+  .login-card {
+    /* TEXTO */
+    --mdc-outlined-text-field-input-text-color: #000;
+    --mdc-outlined-text-field-label-text-color: #000;
+    --mdc-outlined-text-field-focus-label-text-color: #000;
+  
+    /* PLACEHOLDER */
+    --mdc-outlined-text-field-placeholder-text-color: #555;
+  
+    /* BORDES */
+    --mdc-outlined-text-field-outline-color: #000;
+    --mdc-outlined-text-field-hover-outline-color: #000;
+    --mdc-outlined-text-field-focus-outline-color: #000;
+  
+    /* CURSOR */
+    --mdc-text-field-caret-color: #000;
+  
+    /* RIPPLE (CLICK) */
+    --mdc-ripple-color: rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-blue {
+    --mdc-protected-button-container-color: #0090c1;
+    --mdc-protected-button-label-text-color: #ffffff;
+  }
+  
+  
+  
+  

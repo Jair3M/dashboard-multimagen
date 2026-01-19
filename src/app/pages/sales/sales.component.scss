@@ -1,0 +1,27 @@
+.login-card {
+  .mat-mdc-form-field {
+    --mdc-outlined-text-field-input-text-color: #000;
+    --mdc-outlined-text-field-label-text-color: #000;
+    --mdc-outlined-text-field-focus-label-text-color: #000;
+    --mdc-outlined-text-field-placeholder-text-color: #555;
+    --mdc-outlined-text-field-outline-color: #000;
+    --mdc-outlined-text-field-hover-outline-color: #000;
+    --mdc-outlined-text-field-focus-outline-color: #000;
+    --mdc-text-field-caret-color: #000;
+  }
+}
+
+.table-wrapper {
+    position: relative;
+  }
+  
+  .loader-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  

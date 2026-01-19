@@ -2,3 +2,137 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-form-field.black-field {
+    --mdc-outlined-text-field-container-color: #ffffff;
+  
+    --mdc-outlined-text-field-input-text-color: #000000;
+    --mdc-outlined-text-field-label-text-color: #000000;
+    --mdc-outlined-text-field-focus-label-text-color: #000000;
+  
+    --mdc-outlined-text-field-placeholder-text-color: #555555;
+  
+    --mdc-outlined-text-field-outline-color: #000000;
+    --mdc-outlined-text-field-hover-outline-color: #000000;
+    --mdc-outlined-text-field-focus-outline-color: #000000;
+  
+    --mdc-text-field-caret-color: #000000;
+  }
+
+  .mat-mdc-form-field.black-field {
+    .mat-mdc-datepicker-toggle .mat-icon {
+      color: #000000;
+    }
+  }
+
+  .mat-mdc-icon-button {
+    --mdc-icon-button-icon-color: #000000;
+    --mdc-icon-button-hover-icon-color: #000000;
+    --mdc-icon-button-focus-icon-color: #000000;
+  }
+  
+  /* ================================
+   CONTENEDOR RESPONSIVO
+================================ */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* ================================
+     TABLA
+  ================================ */
+  .mat-mdc-table.white-table {
+    width: 100%;
+    min-width: 800px; /* fuerza scroll en mobile */
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+  }
+  
+  /* ================================
+     HEADER
+  ================================ */
+  .mat-mdc-header-row {
+    background-color: #ffffff;
+  }
+  
+  .mat-mdc-header-cell {
+    color: #000000;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  /* ================================
+     FILAS
+  ================================ */
+  .mat-mdc-row {
+    background-color: #ffffff;
+  }
+  
+  .mat-mdc-cell {
+    color: #000000;
+    font-size: 13px;
+  }
+  
+  /* ================================
+     HOVER
+  ================================ */
+  .mat-mdc-row:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* ================================
+     BORDES
+  ================================ */
+  .mat-mdc-header-row,
+  .mat-mdc-row {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  /* ================================
+     RESPONSIVE (opcional)
+  ================================ */
+  @media (max-width: 768px) {
+    .mat-column-Currency,
+    .mat-column-PaymentType {
+      display: none;
+    }
+  }
+  
+  /* ===============================
+   MAT-PAGINATOR MDC - blanco y negro
+================================= */
+.mat-mdc-paginator {
+    background-color: #ffffff; /* fondo blanco */
+    color: #000000;            /* texto negro */
+  }
+  
+  /* Flechas de navegación */
+  .mat-mdc-paginator .mat-mdc-icon-button {
+    --mdc-icon-button-icon-color: #000000;
+    --mdc-icon-button-hover-icon-color: #000000;
+    --mdc-icon-button-focus-icon-color: #000000;
+  }
+  
+  /* Número de página seleccionado */
+  .mat-mdc-paginator .mat-mdc-select-value-text {
+    color: #000000;
+  }
+  
+  /* Panel del select */
+  .mat-mdc-paginator .mat-mdc-select-panel {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
+  
+  
+  
+    

@@ -13,4 +13,5 @@ export interface PurchaseOrder {
   Invoice: string;
   LastFourCard: string;
   Seller: string;
+  Family: any;
 }

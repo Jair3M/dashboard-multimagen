@@ -132,6 +132,45 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     align-items: center;
     height: 200px;
   }
+
+  .filters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .filters mat-form-field {
+    display: flex;
+    align-items: center;
+  }  
+  
+  .export-btn {
+    margin-left: auto; /* empuja el botón a la derecha */
+  }
+
+  .btn-green {
+    background-color: #4caf50 !important; /* verde material */
+    color: white !important;
+  }
+  
+  .btn-green:hover {
+    background-color: #43a047 !important;
+  }
+
+  .loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background-color: rgba(0, 0, 0, 0.2); /* opcional */
+    z-index: 9999;
+  }
   
   
   

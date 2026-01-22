@@ -20,18 +20,22 @@ import { saveAs } from 'file-saver';
 })
 export class SalesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
-    'Seller',
     'PurchasedDate',
+    'Seller',
+    'Code',
+    'TourName',
     'Amount',
     'PaymentType',
     'Currency',
-    'IsNotificated',
+    'Phone',
+    'Email',
   ];
 
   dataSource = new MatTableDataSource<PurchaseOrder>([]);
 
-  fromDate!: Date;
-  toDate!: Date;
+  fromDate: Date = new Date();
+  toDate: Date = new Date();
+  user: string = '';
   isLoading = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -50,7 +54,15 @@ export class SalesComponent implements OnInit, AfterViewInit {
 
   loadSales(): void {
     this.isLoading = true;
-    this.salesService.getPurchaseOrders().subscribe({
+    const payload: any = {
+      CreatedFrom: this.fromDate,
+      CreatedTo: this.toDate,
+    };
+
+    if (this.user?.trim()) {
+      payload.Code = this.user;
+    }
+    this.salesService.getPurchaseOrdersByDateRange(payload).subscribe({
       next: (data) => {
         this.updateTable(data);
         this.isLoading = false;
@@ -66,18 +78,25 @@ export class SalesComponent implements OnInit, AfterViewInit {
     if (!this.fromDate || !this.toDate) return;
 
     this.isLoading = true;
-    this.salesService
-      .getPurchaseOrdersByDateRange(this.fromDate, this.toDate)
-      .subscribe({
-        next: (data) => {
-          this.updateTable(data);
-          this.isLoading = false;
-        },
-        error: (err) => {
-          console.error(err);
-          this.isLoading = false;
-        },
-      });
+    const payload: any = {
+      CreatedFrom: this.fromDate,
+      CreatedTo: this.toDate,
+    };
+
+    if (this.user?.trim()) {
+      payload.Code = this.user;
+    }
+
+    this.salesService.getPurchaseOrdersByDateRange(payload).subscribe({
+      next: (data) => {
+        this.updateTable(data);
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error(err);
+        this.isLoading = false;
+      },
+    });
   }
 
   exportToExcel(): void {
@@ -85,14 +104,16 @@ export class SalesComponent implements OnInit, AfterViewInit {
 
     // Convertimos los datos a una tabla simple
     const exportData = this.dataSource.data.map((po) => ({
-      ID: po.IdPurchaseOrder,
-      Fecha: po.PurchasedDate,
+      Fecha: new Date(po.PurchasedDate).toISOString().split('T')[0],
+      Vendedor: po.Seller,
+      Usuario: po.Family?.Photographers?.Code,
+      Concesión: po.Family?.Tours?.Name,
       Monto: po.Amount,
       Pago: po.PaymentType,
       Moneda: po.Currency,
-      Vendedor: po.Seller,
+      Teléfono: po.Family?.Phone,
+      CorreoEletronico: po.Family?.Email,
     }));
-
     const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(exportData);
     const workbook: XLSX.WorkBook = {
       Sheets: { PurchaseOrders: worksheet },
@@ -106,7 +127,7 @@ export class SalesComponent implements OnInit, AfterViewInit {
     const blob: Blob = new Blob([excelBuffer], {
       type: 'application/octet-stream',
     });
-    saveAs(blob, 'PurchaseOrders.xlsx');
+    saveAs(blob, 'Ventas.xlsx');
   }
 
   private updateTable(data: PurchaseOrder[]): void {
@@ -120,5 +141,14 @@ export class SalesComponent implements OnInit, AfterViewInit {
           return (item as any)[property];
       }
     };
+  }
+
+  formatDate(date: Date | null): string {
+    if (!date) return '';
+    const d = new Date(date);
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
   }
 }

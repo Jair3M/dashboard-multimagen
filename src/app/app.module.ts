@@ -11,6 +11,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { MenuComponent } from './core/menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DisplayDatePipe } from './shared/pipes/display-date.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     SalesComponent,
     MenuComponent,
+    DisplayDatePipe,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
   ],
+  exports: [DisplayDatePipe],
   providers: [],
   bootstrap: [AppComponent],
 })

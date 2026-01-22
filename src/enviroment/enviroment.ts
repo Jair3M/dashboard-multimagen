@@ -4,14 +4,9 @@ export const environment = {
   //apiUrl: 'http://localhost:3000',
   users: [
     {
-      username: 'admin',
-      password: '1234',
+      username: 'multimagen',
+      password: 'Mult1mag3n.*2026',
       role: 'ADMIN',
-    },
-    {
-      username: 'user',
-      password: 'abcd',
-      role: 'USER',
     },
   ],
 };
